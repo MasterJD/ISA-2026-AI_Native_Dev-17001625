@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TraveLens
 
-## Getting Started
+Aplicacion de exploracion de destinos tipo Pinterest con Next.js App Router, BFF pattern y generacion de planes de viaje asistida por IA.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS v4
+- shadcn/ui + Base UI
+- Lucide React
+- Vitest + Testing Library
+
+## Arquitectura
+
+- `src/app/api/`: rutas BFF que encapsulan llamadas externas.
+- `src/services/unsplash.ts`: logica de datos de destinos y mapeo.
+- `src/services/gemini.ts`: generacion de planes estructurados.
+- `src/components/ui/`: primitives UI.
+- `src/components/features/`: componentes de negocio.
+- `src/components/providers/`: estado global (favoritos).
+
+## Funcionalidades Implementadas
+
+- Busqueda en tiempo real con sincronizacion de query params (`?q=`).
+- Grid masonry responsivo de destinos.
+- Favoritos persistentes (localStorage) con filtro "Solo favoritos".
+- Navegacion por teclado en grid:
+	- Flechas para mover foco.
+	- Tecla `F` para agregar/quitar favorito.
+- Vista de detalle en `destination/[id]`:
+	- Hero con titulo y tags.
+	- Panel de plan IA.
+	- Sidebar de destinos similares en formato mosaico.
+- Manejo de errores visible en frontend (alertas y `app/error.tsx`).
+
+## Variables de Entorno
+
+Crear ` .env.local ` con:
+
+```env
+UNSPLASH_ACCESS_KEY=tu_clave_unsplash
+GOOGLE_GENAI_API_KEY=tu_clave_gemini
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Si faltan claves de Unsplash, la aplicacion usa datos mock para no bloquear la UI.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Comandos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+npm run lint
+npm run test
+```
 
-## Learn More
+## Testing
 
-To learn more about Next.js, take a look at the following resources:
+Se incluyen pruebas unitarias e integracion ligera para:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Helpers de favoritos.
+- Servicio de generacion de plan.
+- Ruta BFF `POST /api/ai-plan`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Archivos principales de test:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/lib/favorites.test.ts`
+- `src/services/gemini.test.ts`
+- `src/app/api/ai-plan/route.test.ts`

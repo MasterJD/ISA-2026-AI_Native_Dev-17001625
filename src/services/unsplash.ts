@@ -1,27 +1,11 @@
 import "server-only";
 
+import { MOCK_DESTINATIONS } from "@/lib/mock-data";
+import type { Destination } from "@/types/travel";
+
 export type DestinationMode = "home" | "search";
 
-export interface Destination {
-  id: string;
-  slug: string;
-  title: string;
-  description: string;
-  gridTitle: string;
-  gridSubtitle: string;
-  cityName?: string;
-  location?: string;
-  tags: string[];
-  urls: {
-    thumb: string;
-    small: string;
-    regular: string;
-  };
-  user: {
-    name: string;
-    username: string;
-  };
-}
+export type { Destination } from "@/types/travel";
 
 interface UnsplashPhoto {
   id: string;
@@ -87,6 +71,52 @@ const TOP_TOURIST_CITIES = [
   "Athens",
   "Bali",
 ];
+
+function hasUnsplashAccessKey(): boolean {
+  return Boolean(process.env.UNSPLASH_ACCESS_KEY?.trim());
+}
+
+function formatMockDestination(
+  destination: Destination,
+  mode: DestinationMode,
+): Destination {
+  const searchSubtitle =
+    destination.tags.slice(0, 3).join(" • ") || destination.gridSubtitle;
+
+  return {
+    ...destination,
+    gridTitle:
+      mode === "home"
+        ? destination.cityName || destination.gridTitle
+        : destination.description || destination.gridTitle,
+    gridSubtitle: mode === "home" ? destination.description : searchSubtitle,
+  };
+}
+
+function getMockDestinations(mode: DestinationMode, query = ""): Destination[] {
+  const normalizedQuery = query.trim().toLowerCase();
+
+  const filteredDestinations = normalizedQuery
+    ? MOCK_DESTINATIONS.filter((destination) => {
+        const searchableText = [
+          destination.title,
+          destination.description,
+          destination.cityName,
+          destination.location,
+          ...destination.tags,
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+
+        return searchableText.includes(normalizedQuery);
+      })
+    : MOCK_DESTINATIONS;
+
+  return filteredDestinations.map((destination) =>
+    formatMockDestination(destination, mode),
+  );
+}
 
 function requireUnsplashAccessKey(): string {
   const key = process.env.UNSPLASH_ACCESS_KEY;
@@ -254,6 +284,10 @@ function dedupeById(destinations: Destination[]): Destination[] {
 }
 
 export async function fetchPopular(): Promise<Destination[]> {
+  if (!hasUnsplashAccessKey()) {
+    return getMockDestinations("home").slice(0, 24);
+  }
+
   const selectedCities = pickRandomCities(3);
   const batches = await Promise.all(
     selectedCities.map((city) =>
@@ -266,6 +300,10 @@ export async function fetchPopular(): Promise<Destination[]> {
 
 export async function searchDestinations(query: string): Promise<Destination[]> {
   const normalizedQuery = query.trim();
+
+  if (!hasUnsplashAccessKey()) {
+    return getMockDestinations("search", normalizedQuery).slice(0, 24);
+  }
 
   if (!normalizedQuery) {
     return fetchPopular();
@@ -280,6 +318,27 @@ export async function fetchRelated(
   excludedId?: string,
   fallbackCity?: string,
 ): Promise<Destination[]> {
+  if (!hasUnsplashAccessKey()) {
+    const primaryQuery = [location, ...tags.slice(0, 3)].join(" ").trim();
+
+    let merged = dedupeById(getMockDestinations("search", primaryQuery));
+
+    if (merged.length < 8) {
+      const secondaryQuery =
+        `${fallbackCity || location || "world"} landmark travel`.trim();
+
+      merged = dedupeById([
+        ...merged,
+        ...getMockDestinations("search", secondaryQuery),
+        ...getMockDestinations("search"),
+      ]);
+    }
+
+    return merged
+      .filter((destination) => destination.id !== excludedId)
+      .slice(0, 8);
+  }
+
   const firstTags = tags
     .map((tag) => tag.trim())
     .filter(Boolean)
@@ -313,6 +372,10 @@ export async function fetchRelated(
 }
 
 export async function fetchById(id: string): Promise<Destination | null> {
+  if (!hasUnsplashAccessKey()) {
+    return getMockDestinations("search").find((item) => item.id === id) || null;
+  }
+
   const key = requireUnsplashAccessKey();
   const url = new URL(`${UNSPLASH_BASE_URL}/photos/${encodeURIComponent(id)}`);
 

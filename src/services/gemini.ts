@@ -1,23 +1,8 @@
 import "server-only";
 
-export interface TravelPlanDay {
-  day: number;
-  title: string;
-  activities: string[];
-}
+import type { TravelPlan } from "@/types/travel";
 
-export interface TravelPlan {
-  intro: string;
-  days: TravelPlanDay[];
-  hiddenGem: {
-    title: string;
-    description: string;
-  };
-  localFood: {
-    dish: string;
-    description: string;
-  };
-}
+export type { TravelPlan } from "@/types/travel";
 
 function buildFallbackPlan(destination: string, context?: string): TravelPlan {
   const contextText = context?.trim();

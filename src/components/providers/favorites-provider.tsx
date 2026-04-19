@@ -21,7 +21,15 @@ interface FavoritesContextValue {
   isFavorite: (id: string) => boolean;
 }
 
-const FavoritesContext = createContext<FavoritesContextValue | null>(null);
+const FALLBACK_FAVORITES_CONTEXT: FavoritesContextValue = {
+  favoriteIds: [],
+  toggleFavorite: () => {},
+  isFavorite: () => false,
+};
+
+const FavoritesContext = createContext<FavoritesContextValue>(
+  FALLBACK_FAVORITES_CONTEXT,
+);
 
 export function FavoritesProvider({ children }: { children: React.ReactNode }) {
   const [favoriteIds, setFavoriteIds] = useState<string[]>(() =>
@@ -52,11 +60,5 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useFavorites(): FavoritesContextValue {
-  const context = useContext(FavoritesContext);
-
-  if (!context) {
-    throw new Error("useFavorites must be used within FavoritesProvider.");
-  }
-
-  return context;
+  return useContext(FavoritesContext);
 }

@@ -1,19 +1,20 @@
 "use client";
 
-import { Search, Star } from "lucide-react";
+import { Search, Sparkles, Star } from "lucide-react";
 import {
   useEffect,
   useMemo,
   useState,
 } from "react";
-import type { Route } from "next";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 import { ErrorAlert } from "@/components/features/error-alert";
 import { MasonryGrid } from "@/components/features/masonry-grid";
 import { useFavorites } from "@/components/providers/favorites-provider";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { MOCK_DESTINATIONS } from "@/lib/mock-data";
+import { cn } from "@/lib/utils";
 import type { Destination } from "@/types/travel";
 
 function LoadingGrid() {
@@ -30,27 +31,55 @@ function LoadingGrid() {
 }
 
 export function TravelExplorer() {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const router = useRouter();
-
-  const queryParam = searchParams.get("q") ?? "";
-
-  const [query, setQuery] = useState(queryParam);
-  const [destinations, setDestinations] = useState<Destination[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [activeView, setActiveView] = useState<"explorar" | "favoritos" | "itinerario">("explorar");
+  const [query, setQuery] = useState("");
+  const [destinations, setDestinations] = useState<Destination[]>(
+    MOCK_DESTINATIONS.slice(0, 12),
+  );
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [onlyFavorites, setOnlyFavorites] = useState(false);
   const [reloadCount, setReloadCount] = useState(0);
 
   const { favoriteIds } = useFavorites();
+
+  function filterMockDestinations(searchValue: string): Destination[] {
+    const normalized = searchValue.trim().toLowerCase();
+    if (!normalized) {
+      return MOCK_DESTINATIONS.slice(0, 12);
+    }
+
+    return MOCK_DESTINATIONS.filter((destination) => {
+      const searchableText = [
+        destination.title,
+        destination.description,
+        destination.gridTitle,
+        destination.gridSubtitle,
+        destination.cityName,
+        destination.location,
+        ...destination.tags,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+
+      return searchableText.includes(normalized);
+    }).slice(0, 12);
+  }
+
+  useEffect(() => {
+    const initialQuery = new URLSearchParams(window.location.search).get("q") ?? "";
+    if (initialQuery) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- Query is only available from browser URL after hydration.
+      setQuery(initialQuery);
+    }
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
     const timeout = window.setTimeout(async () => {
       const normalized = query.trim();
 
-      const nextParams = new URLSearchParams(searchParams.toString());
+      const nextParams = new URLSearchParams(window.location.search);
       if (normalized) {
         nextParams.set("q", normalized);
       } else {
@@ -58,14 +87,12 @@ export function TravelExplorer() {
       }
 
       const nextPath = nextParams.toString()
-        ? `${pathname}?${nextParams.toString()}`
-        : pathname;
-      const currentPath = searchParams.toString()
-        ? `${pathname}?${searchParams.toString()}`
-        : pathname;
+        ? `${window.location.pathname}?${nextParams.toString()}`
+        : window.location.pathname;
+      const currentPath = `${window.location.pathname}${window.location.search}`;
 
       if (nextPath !== currentPath) {
-        router.replace(nextPath as Route, { scroll: false });
+        window.history.replaceState({}, "", nextPath);
       }
 
       setIsLoading(true);
@@ -89,13 +116,18 @@ export function TravelExplorer() {
           throw new Error(payload.error || "No fue posible cargar destinos.");
         }
 
-        setDestinations(payload.destinations ?? []);
+        const apiDestinations = payload.destinations ?? [];
+        setDestinations(
+          apiDestinations.length > 0
+            ? apiDestinations
+            : filterMockDestinations(normalized),
+        );
       } catch (loadError) {
         if (controller.signal.aborted) {
           return;
         }
 
-        setDestinations([]);
+        setDestinations(filterMockDestinations(normalized));
         setError(
           loadError instanceof Error
             ? loadError.message
@@ -112,15 +144,17 @@ export function TravelExplorer() {
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [pathname, query, reloadCount, router, searchParams]);
+  }, [query, reloadCount]);
 
   const visibleDestinations = useMemo(() => {
-    if (!onlyFavorites) {
+    if (activeView !== "favoritos") {
       return destinations;
     }
 
     return destinations.filter((destination) => favoriteIds.includes(destination.id));
-  }, [destinations, favoriteIds, onlyFavorites]);
+  }, [activeView, destinations, favoriteIds]);
+
+  const highlightedDestinations = visibleDestinations.slice(0, 3);
 
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-4 py-8 md:px-6 md:py-10">
@@ -154,26 +188,87 @@ export function TravelExplorer() {
           <p className="text-sm text-muted-foreground">
             {visibleDestinations.length} resultados visibles
           </p>
-          <Button
-            variant={onlyFavorites ? "default" : "outline"}
-            onClick={() => setOnlyFavorites((current) => !current)}
-            aria-pressed={onlyFavorites}
-            aria-label="Alternar filtro de favoritos"
+          <nav
+            className="inline-flex rounded-xl border border-border/70 bg-background/70 p-1"
+            aria-label="Navegacion principal"
           >
-            <Star className="size-4" aria-hidden="true" />
-            {onlyFavorites ? "Mostrando favoritos" : "Solo favoritos"}
-          </Button>
+            <Button
+              size="sm"
+              variant={activeView === "explorar" ? "default" : "ghost"}
+              aria-selected={activeView === "explorar"}
+              onClick={() => setActiveView("explorar")}
+            >
+              Explorar
+            </Button>
+            <Button
+              size="sm"
+              variant={activeView === "favoritos" ? "default" : "ghost"}
+              aria-selected={activeView === "favoritos"}
+              onClick={() => setActiveView("favoritos")}
+            >
+              <Star className="size-4" aria-hidden="true" /> Favoritos
+            </Button>
+            <Button
+              size="sm"
+              variant={activeView === "itinerario" ? "default" : "ghost"}
+              aria-selected={activeView === "itinerario"}
+              onClick={() => setActiveView("itinerario")}
+            >
+              Itinerario
+            </Button>
+          </nav>
         </div>
+
+        <p className="mt-3 text-sm text-muted-foreground">
+          Destinos destacados: {highlightedDestinations.map((item) => item.gridTitle).join(", ")}
+        </p>
       </section>
 
-      {error ? (
-        <ErrorAlert
-          description={error}
-          onRetry={() => setReloadCount((count) => count + 1)}
-        />
-      ) : null}
+      <section className="grid gap-6 xl:grid-cols-[1.7fr_1fr]">
+        <div>
+          {error ? (
+            <div className="mb-4">
+              <ErrorAlert
+                description={error}
+                onRetry={() => setReloadCount((count) => count + 1)}
+              />
+            </div>
+          ) : null}
 
-      {isLoading ? <LoadingGrid /> : <MasonryGrid destinations={visibleDestinations} />}
+          {isLoading ? <LoadingGrid /> : <MasonryGrid destinations={visibleDestinations} />}
+        </div>
+
+        <aside className="rounded-3xl border border-border/75 bg-card/85 p-5 shadow-lg shadow-primary/10 backdrop-blur">
+          <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">
+            AI Planner
+          </p>
+          <h2 className="mt-2 font-heading text-2xl">Itinerario IA</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Genera un plan optimizado con ritmo diario, joyas ocultas y recomendaciones locales.
+          </p>
+
+          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+            <li>Dia 1: Llegada y exploracion contextual.</li>
+            <li>Dia 2: Ruta cultural y gastronomia local.</li>
+            <li>Dia 3: Cierre relajado con spot fotografico.</li>
+          </ul>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            <Button aria-label="Generar plan IA" className="gap-2">
+              <Sparkles className="size-4" aria-hidden="true" />
+              Generar plan IA
+            </Button>
+            {visibleDestinations[0] ? (
+              <Link
+                href={`/destination/${visibleDestinations[0].id}`}
+                className={cn(buttonVariants({ variant: "outline" }))}
+              >
+                Ver detalle
+              </Link>
+            ) : null}
+          </div>
+        </aside>
+      </section>
     </main>
   );
 }

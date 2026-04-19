@@ -1,0 +1,21 @@
+{
+  "name": "traderpulse-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TraderPulse monorepo with Next.js 16 frontend and FastAPI backend",
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "cd backend && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload",
+    "test": "npm --prefix frontend run test",
+    "typecheck": "npm --prefix frontend run typecheck",
+    "lint": "npm --prefix frontend run lint",
+    "backend:test": "cd backend && pytest -q",
+    "backend:lint": "cd backend && ruff check ."
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "jsdom": "^26.1.0",
+    "vitest": "^3.2.4"
+  }
+}

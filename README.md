@@ -1,69 +1,138 @@
-# TraveLens
+# Rent my Gear
 
-Aplicacion de exploracion de destinos tipo Pinterest con Next.js App Router, BFF pattern y generacion de planes de viaje asistida por IA.
+Premium equipment rental marketplace built with Next.js App Router.
 
-## Stack
+The project implements an image strategy centered on `imageURL` persistence:
 
-- Next.js 16 (App Router)
+1. Use inventory `imageURL` as the primary source.
+2. If missing or unreachable, generate image with Nano Banana (`gemini-3-pro-image-preview`).
+3. Persist generated image in Google Cloud Storage.
+4. Save resulting public GCS URL back as the item's `imageURL`.
+
+UI copy is in Spanish. Code and technical comments are in English.
+
+## Core Features
+
+- Premium home experience with featured carousel and category action buttons.
+- Category inventory with real-time search and streaming UX.
+- Multi-step rental flow:
+  - Selection (specs + availability)
+  - Date configuration with validation
+  - Price summary (`dailyRate * totalDays`)
+  - Mock confirmation and final confirmed state
+- Global and route-specific error boundaries (`global-error`, per-route `error.tsx`).
+- Strict runtime server environment validation with Zod.
+
+## Tech Stack
+
+- Next.js 16+ (App Router)
 - TypeScript
-- Tailwind CSS v4
-- shadcn/ui + Base UI
-- Lucide React
-- Vitest + Testing Library
+- Tailwind CSS + shadcn-style primitives
+- Zod
+- Google Cloud Storage (`@google-cloud/storage`)
+- Google Generative AI SDK (`@google/generative-ai`)
+- Vitest + React Testing Library
 
-## Arquitectura
+## Project Structure
 
-- `src/app/api/`: rutas BFF que encapsulan llamadas externas.
-- `src/services/unsplash.ts`: logica de datos de destinos y mapeo.
-- `src/services/gemini.ts`: generacion de planes estructurados.
-- `src/components/ui/`: primitives UI.
-- `src/components/features/`: componentes de negocio.
-- `src/components/providers/`: estado global (favoritos).
+- `src/app`: App Router routes, global error, API routes
+- `src/components/ui`: base UI primitives
+- `src/components/features`: feature components (`HeroCarousel`, `CategoryButtons`, `GearGrid`, `RentalFlow`)
+- `src/services`: `inventoryService`, `imageService`, `storageService`
+- `src/lib`: date and validation utilities
+- `src/config`: environment validation
+- `src/data/inventory.json`: 50-item mock inventory
+- `setup_gcs.py`: GCS setup + smoke test script
 
-## Funcionalidades Implementadas
+## Environment Variables
 
-- Busqueda en tiempo real con sincronizacion de query params (`?q=`).
-- Grid masonry responsivo de destinos.
-- Favoritos persistentes (localStorage) con filtro "Solo favoritos".
-- Navegacion por teclado en grid:
-	- Flechas para mover foco.
-	- Tecla `F` para agregar/quitar favorito.
-- Vista de detalle en `destination/[id]`:
-	- Hero con titulo y tags.
-	- Panel de plan IA.
-	- Sidebar de destinos similares en formato mosaico.
-- Manejo de errores visible en frontend (alertas y `app/error.tsx`).
+Create `.env` based on `.env.example`:
 
-## Variables de Entorno
+- `GCS_BUCKET_NAME`
+- `GCS_PROJECT_ID`
+- `GOOGLE_APPLICATION_CREDENTIALS`
+- `NANO_BANANA_API_KEY`
 
-Crear ` .env.local ` con:
+`src/config/env.ts` validates these variables at server startup and throws a descriptive error when invalid.
 
-```env
-UNSPLASH_ACCESS_KEY=tu_clave_unsplash
-GOOGLE_GENAI_API_KEY=tu_clave_gemini
-```
+## Local Setup
 
-Si faltan claves de Unsplash, la aplicacion usa datos mock para no bloquear la UI.
-
-## Comandos
+### 1) Install Node dependencies
 
 ```bash
 npm install
-npm run dev
-npm run lint
-npm run test
 ```
+
+### 2) (Optional but recommended) Install Python infra deps with uv
+
+```bash
+uv sync
+```
+
+### 3) Configure environment
+
+```bash
+copy .env.example .env
+```
+
+Then edit `.env` with your real values.
+
+### 4) Start development server
+
+```bash
+npm run dev
+```
+
+## GCS Setup and Smoke Test
+
+Use the provided script:
+
+```bash
+uv run setup_gcs.py
+```
+
+What it does:
+
+1. Creates bucket if needed.
+2. Enables public object access policy.
+3. Uploads smoke file.
+4. Verifies public URL is reachable.
+5. Deletes smoke file.
 
 ## Testing
 
-Se incluyen pruebas unitarias e integracion ligera para:
+Run all tests:
 
-- Helpers de favoritos.
-- Servicio de generacion de plan.
-- Ruta BFF `POST /api/ai-plan`.
+```bash
+npm test
+```
 
-Archivos principales de test:
+Additional checks:
 
-- `src/lib/favorites.test.ts`
-- `src/services/gemini.test.ts`
-- `src/app/api/ai-plan/route.test.ts`
+```bash
+npm run lint
+npm run typecheck
+npm run test:coverage
+```
+
+## Documentation Index
+
+- Technical architecture: [docs/technical-architecture.md](docs/technical-architecture.md)
+- Guided debugging report: [docs/guided-debugging-report.md](docs/guided-debugging-report.md)
+- Mermaid diagrams: [docs/diagrams.md](docs/diagrams.md)
+- Smart Insurance feature: [docs/smart-insurance.md](docs/smart-insurance.md)
+- Onboarding guide: [docs/onboarding-guide.md](docs/onboarding-guide.md)
+- Testing results: [docs/testing-results.md](docs/testing-results.md)
+
+## Notes on the "Invisible" UI Flicker
+
+Hydration mismatch was traced to dynamic values used in initial render state (`Math.random()` in `HeroCarousel`).
+The fix makes initial server/client render deterministic and applies randomization only after mount (`useEffect`).
+
+## Mock Inventory Data
+
+- 50 total items across:
+  - Fotografía y Video
+  - Montaña y Camping
+  - Deportes Acuáticos
+- 8 items intentionally start without `imageURL` to force fallback generation flow.

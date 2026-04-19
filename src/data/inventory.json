@@ -1,0 +1,952 @@
+[
+  {
+    "id": "gear-1",
+    "name": "Cámara DSLR",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de cámara dslr para tus actividades de fotografía y video.",
+    "dailyRate": 50,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?C%C3%A1mara%20DSLR",
+    "technicalSpecs": {
+      "weight": "2.2kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 6
+    }
+  },
+  {
+    "id": "gear-2",
+    "name": "Trípode Fibra",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de trípode fibra para tus actividades de fotografía y video.",
+    "dailyRate": 47,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Tr%C3%ADpode%20Fibra",
+    "technicalSpecs": {
+      "weight": "3.1kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 8
+    }
+  },
+  {
+    "id": "gear-3",
+    "name": "Luz LED",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de luz led para tus actividades de fotografía y video.",
+    "dailyRate": 64,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Luz%20LED",
+    "technicalSpecs": {
+      "weight": "4.0kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 5
+    }
+  },
+  {
+    "id": "gear-4",
+    "name": "Micrófono Shotgun",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de micrófono shotgun para tus actividades de fotografía y video.",
+    "dailyRate": 49,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Micr%C3%B3fono%20Shotgun",
+    "technicalSpecs": {
+      "weight": "2.4kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 2
+    }
+  },
+  {
+    "id": "gear-5",
+    "name": "Drone 4K",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de drone 4k para tus actividades de fotografía y video.",
+    "dailyRate": 35,
+    "currency": "USD",
+    "imageURL": null,
+    "technicalSpecs": {
+      "weight": "0.8kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 4
+    }
+  },
+  {
+    "id": "gear-6",
+    "name": "Lente 50mm",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de lente 50mm para tus actividades de fotografía y video.",
+    "dailyRate": 51,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Lente%2050mm",
+    "technicalSpecs": {
+      "weight": "1.3kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 9
+    }
+  },
+  {
+    "id": "gear-7",
+    "name": "Gimbal 3 Ejes",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de gimbal 3 ejes para tus actividades de fotografía y video.",
+    "dailyRate": 30,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Gimbal%203%20Ejes",
+    "technicalSpecs": {
+      "weight": "1.4kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 4
+    }
+  },
+  {
+    "id": "gear-8",
+    "name": "Filtro ND",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de filtro nd para tus actividades de fotografía y video.",
+    "dailyRate": 28,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Filtro%20ND",
+    "technicalSpecs": {
+      "weight": "2.8kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 5
+    }
+  },
+  {
+    "id": "gear-9",
+    "name": "Batería Extra",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de batería extra para tus actividades de fotografía y video.",
+    "dailyRate": 17,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Bater%C3%ADa%20Extra",
+    "technicalSpecs": {
+      "weight": "2.5kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 3
+    }
+  },
+  {
+    "id": "gear-10",
+    "name": "Tarjeta SD 128GB",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de tarjeta sd 128gb para tus actividades de fotografía y video.",
+    "dailyRate": 61,
+    "currency": "USD",
+    "imageURL": null,
+    "technicalSpecs": {
+      "weight": "2.3kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": false,
+      "totalUnits": 7
+    }
+  },
+  {
+    "id": "gear-11",
+    "name": "Flash Externo",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de flash externo para tus actividades de fotografía y video.",
+    "dailyRate": 60,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Flash%20Externo",
+    "technicalSpecs": {
+      "weight": "4.2kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 5
+    }
+  },
+  {
+    "id": "gear-12",
+    "name": "Reflector Solar",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de reflector solar para tus actividades de fotografía y video.",
+    "dailyRate": 36,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Reflector%20Solar",
+    "technicalSpecs": {
+      "weight": "2.5kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 4
+    }
+  },
+  {
+    "id": "gear-13",
+    "name": "Mochila Prep",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de mochila prep para tus actividades de fotografía y video.",
+    "dailyRate": 31,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Mochila%20Prep",
+    "technicalSpecs": {
+      "weight": "3.8kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 9
+    }
+  },
+  {
+    "id": "gear-14",
+    "name": "Cámara de Acción",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de cámara de acción para tus actividades de fotografía y video.",
+    "dailyRate": 44,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?C%C3%A1mara%20de%20Acci%C3%B3n",
+    "technicalSpecs": {
+      "weight": "2.1kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 3
+    }
+  },
+  {
+    "id": "gear-15",
+    "name": "Control Remoto",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de control remoto para tus actividades de fotografía y video.",
+    "dailyRate": 35,
+    "currency": "USD",
+    "imageURL": null,
+    "technicalSpecs": {
+      "weight": "2.2kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 6
+    }
+  },
+  {
+    "id": "gear-16",
+    "name": "Cargador Dual",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de cargador dual para tus actividades de fotografía y video.",
+    "dailyRate": 29,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Cargador%20Dual",
+    "technicalSpecs": {
+      "weight": "3.4kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 8
+    }
+  },
+  {
+    "id": "gear-17",
+    "name": "Soporte Ventosa",
+    "categoryId": "fotografia-video",
+    "categoryName": "Fotografía y Video",
+    "shortDescription": "Equipo profesional de soporte ventosa para tus actividades de fotografía y video.",
+    "dailyRate": 36,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Soporte%20Ventosa",
+    "technicalSpecs": {
+      "weight": "1.1kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 7
+    }
+  },
+  {
+    "id": "gear-18",
+    "name": "Carpa 2P",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de carpa 2p para tus actividades de montaña y camping.",
+    "dailyRate": 22,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Carpa%202P",
+    "technicalSpecs": {
+      "weight": "3.3kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 3
+    }
+  },
+  {
+    "id": "gear-19",
+    "name": "Saco de Dormir",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de saco de dormir para tus actividades de montaña y camping.",
+    "dailyRate": 58,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Saco%20de%20Dormir",
+    "technicalSpecs": {
+      "weight": "2.4kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 6
+    }
+  },
+  {
+    "id": "gear-20",
+    "name": "Mochila 65L",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de mochila 65l para tus actividades de montaña y camping.",
+    "dailyRate": 35,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Mochila%2065L",
+    "technicalSpecs": {
+      "weight": "3.9kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 3
+    }
+  },
+  {
+    "id": "gear-21",
+    "name": "Botas Trekking",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de botas trekking para tus actividades de montaña y camping.",
+    "dailyRate": 57,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Botas%20Trekking",
+    "technicalSpecs": {
+      "weight": "4.1kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 3
+    }
+  },
+  {
+    "id": "gear-22",
+    "name": "Linterna Frontal",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de linterna frontal para tus actividades de montaña y camping.",
+    "dailyRate": 19,
+    "currency": "USD",
+    "imageURL": null,
+    "technicalSpecs": {
+      "weight": "2.6kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 8
+    }
+  },
+  {
+    "id": "gear-23",
+    "name": "Hornillo Gas",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de hornillo gas para tus actividades de montaña y camping.",
+    "dailyRate": 27,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Hornillo%20Gas",
+    "technicalSpecs": {
+      "weight": "1.3kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 9
+    }
+  },
+  {
+    "id": "gear-24",
+    "name": "Bastones Trail",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de bastones trail para tus actividades de montaña y camping.",
+    "dailyRate": 44,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Bastones%20Trail",
+    "technicalSpecs": {
+      "weight": "3.7kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": false,
+      "totalUnits": 2
+    }
+  },
+  {
+    "id": "gear-25",
+    "name": "Aislante Térmico",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de aislante térmico para tus actividades de montaña y camping.",
+    "dailyRate": 41,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Aislante%20T%C3%A9rmico",
+    "technicalSpecs": {
+      "weight": "4.0kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 9
+    }
+  },
+  {
+    "id": "gear-26",
+    "name": "Navaja Suiza",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de navaja suiza para tus actividades de montaña y camping.",
+    "dailyRate": 36,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Navaja%20Suiza",
+    "technicalSpecs": {
+      "weight": "2.9kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 9
+    }
+  },
+  {
+    "id": "gear-27",
+    "name": "Brújula Pro",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de brújula pro para tus actividades de montaña y camping.",
+    "dailyRate": 20,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Br%C3%BAjula%20Pro",
+    "technicalSpecs": {
+      "weight": "1.2kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 9
+    }
+  },
+  {
+    "id": "gear-28",
+    "name": "Kit Cocina",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de kit cocina para tus actividades de montaña y camping.",
+    "dailyRate": 52,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Kit%20Cocina",
+    "technicalSpecs": {
+      "weight": "1.3kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 5
+    }
+  },
+  {
+    "id": "gear-29",
+    "name": "Hamaca Ultra",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de hamaca ultra para tus actividades de montaña y camping.",
+    "dailyRate": 60,
+    "currency": "USD",
+    "imageURL": null,
+    "technicalSpecs": {
+      "weight": "1.2kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 4
+    }
+  },
+  {
+    "id": "gear-30",
+    "name": "Purificador Agua",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de purificador agua para tus actividades de montaña y camping.",
+    "dailyRate": 50,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Purificador%20Agua",
+    "technicalSpecs": {
+      "weight": "4.1kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 7
+    }
+  },
+  {
+    "id": "gear-31",
+    "name": "Cuerda Escalada",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de cuerda escalada para tus actividades de montaña y camping.",
+    "dailyRate": 56,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Cuerda%20Escalada",
+    "technicalSpecs": {
+      "weight": "2.7kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 8
+    }
+  },
+  {
+    "id": "gear-32",
+    "name": "Arnés Seguridad",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de arnés seguridad para tus actividades de montaña y camping.",
+    "dailyRate": 63,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Arn%C3%A9s%20Seguridad",
+    "technicalSpecs": {
+      "weight": "2.7kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 7
+    }
+  },
+  {
+    "id": "gear-33",
+    "name": "Casco Montaña",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de casco montaña para tus actividades de montaña y camping.",
+    "dailyRate": 56,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Casco%20Monta%C3%B1a",
+    "technicalSpecs": {
+      "weight": "3.1kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": false,
+      "totalUnits": 4
+    }
+  },
+  {
+    "id": "gear-34",
+    "name": "Pantalón Térmico",
+    "categoryId": "montana-camping",
+    "categoryName": "Montaña y Camping",
+    "shortDescription": "Equipo profesional de pantalón térmico para tus actividades de montaña y camping.",
+    "dailyRate": 24,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Pantal%C3%B3n%20T%C3%A9rmico",
+    "technicalSpecs": {
+      "weight": "2.6kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 7
+    }
+  },
+  {
+    "id": "gear-35",
+    "name": "Tabla Surf",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de tabla surf para tus actividades de deportes acuáticos.",
+    "dailyRate": 31,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Tabla%20Surf",
+    "technicalSpecs": {
+      "weight": "0.9kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 6
+    }
+  },
+  {
+    "id": "gear-36",
+    "name": "Traje Neopreno",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de traje neopreno para tus actividades de deportes acuáticos.",
+    "dailyRate": 63,
+    "currency": "USD",
+    "imageURL": null,
+    "technicalSpecs": {
+      "weight": "3.8kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 8
+    }
+  },
+  {
+    "id": "gear-37",
+    "name": "Paddle Board",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de paddle board para tus actividades de deportes acuáticos.",
+    "dailyRate": 24,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Paddle%20Board",
+    "technicalSpecs": {
+      "weight": "4.4kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 2
+    }
+  },
+  {
+    "id": "gear-38",
+    "name": "Aletas Buceo",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de aletas buceo para tus actividades de deportes acuáticos.",
+    "dailyRate": 18,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Aletas%20Buceo",
+    "technicalSpecs": {
+      "weight": "3.4kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 8
+    }
+  },
+  {
+    "id": "gear-39",
+    "name": "Máscara Snorkel",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de máscara snorkel para tus actividades de deportes acuáticos.",
+    "dailyRate": 49,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?M%C3%A1scara%20Snorkel",
+    "technicalSpecs": {
+      "weight": "1.9kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 3
+    }
+  },
+  {
+    "id": "gear-40",
+    "name": "Chaleco Vida",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de chaleco vida para tus actividades de deportes acuáticos.",
+    "dailyRate": 58,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Chaleco%20Vida",
+    "technicalSpecs": {
+      "weight": "2.0kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 4
+    }
+  },
+  {
+    "id": "gear-41",
+    "name": "Kayak Inflable",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de kayak inflable para tus actividades de deportes acuáticos.",
+    "dailyRate": 55,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Kayak%20Inflable",
+    "technicalSpecs": {
+      "weight": "2.4kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 7
+    }
+  },
+  {
+    "id": "gear-42",
+    "name": "Bolsa Estanca",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de bolsa estanca para tus actividades de deportes acuáticos.",
+    "dailyRate": 28,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Bolsa%20Estanca",
+    "technicalSpecs": {
+      "weight": "0.7kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 6
+    }
+  },
+  {
+    "id": "gear-43",
+    "name": "Remo Carbono",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de remo carbono para tus actividades de deportes acuáticos.",
+    "dailyRate": 43,
+    "currency": "USD",
+    "imageURL": null,
+    "technicalSpecs": {
+      "weight": "1.9kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": false,
+      "totalUnits": 6
+    }
+  },
+  {
+    "id": "gear-44",
+    "name": "Reloj Sub",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de reloj sub para tus actividades de deportes acuáticos.",
+    "dailyRate": 50,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Reloj%20Sub",
+    "technicalSpecs": {
+      "weight": "1.6kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 8
+    }
+  },
+  {
+    "id": "gear-45",
+    "name": "Gafas Natación",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de gafas natación para tus actividades de deportes acuáticos.",
+    "dailyRate": 38,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Gafas%20Nataci%C3%B3n",
+    "technicalSpecs": {
+      "weight": "2.2kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 5
+    }
+  },
+  {
+    "id": "gear-46",
+    "name": "Toalla Secado",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de toalla secado para tus actividades de deportes acuáticos.",
+    "dailyRate": 64,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Toalla%20Secado",
+    "technicalSpecs": {
+      "weight": "1.1kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 8
+    }
+  },
+  {
+    "id": "gear-47",
+    "name": "Boyas Señal",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de boyas señal para tus actividades de deportes acuáticos.",
+    "dailyRate": 49,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Boyas%20Se%C3%B1al",
+    "technicalSpecs": {
+      "weight": "2.1kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": false,
+      "totalUnits": 6
+    }
+  },
+  {
+    "id": "gear-48",
+    "name": "Botas Neopreno",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de botas neopreno para tus actividades de deportes acuáticos.",
+    "dailyRate": 52,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Botas%20Neopreno",
+    "technicalSpecs": {
+      "weight": "2.9kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 6
+    }
+  },
+  {
+    "id": "gear-49",
+    "name": "Guantes Agua",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de guantes agua para tus actividades de deportes acuáticos.",
+    "dailyRate": 30,
+    "currency": "USD",
+    "imageURL": null,
+    "technicalSpecs": {
+      "weight": "0.5kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 2
+    }
+  },
+  {
+    "id": "gear-50",
+    "name": "Kit Reparación",
+    "categoryId": "deportes-acuaticos",
+    "categoryName": "Deportes Acuáticos",
+    "shortDescription": "Equipo profesional de kit reparación para tus actividades de deportes acuáticos.",
+    "dailyRate": 42,
+    "currency": "USD",
+    "imageURL": "https://source.unsplash.com/featured/?Kit%20Reparaci%C3%B3n",
+    "technicalSpecs": {
+      "weight": "3.6kg",
+      "material": "High-grade components",
+      "warranty": "1 year"
+    },
+    "availability": {
+      "inStock": true,
+      "totalUnits": 4
+    }
+  }
+]

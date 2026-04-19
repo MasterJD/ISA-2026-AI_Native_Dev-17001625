@@ -1,0 +1,13 @@
+[project]
+name = "rent-my-gear-gcs-tools"
+version = "0.1.0"
+description = "Utility scripts for Rent my Gear infrastructure setup"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "google-cloud-storage>=2.18.0",
+    "python-dotenv>=1.0.1",
+]
+
+[tool.uv]
+package = false
